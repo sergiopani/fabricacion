@@ -23,3 +23,7 @@ html, body {
     background-color: #00ff00;
 }
 
+select{
+    height: 60px;
+}
+

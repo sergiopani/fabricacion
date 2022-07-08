@@ -137,21 +137,21 @@
             //this.selectedArticulo.tapa = status;
             //Recorrido por las propiedades del articulo y cambiamos las 'X' por 'N' y la selected por S
             for (const property in this.selectedArticulo) {
-                if(property === 'fondo' && this.selectedArticulo[property] === 'X'){
+                if(property === 'fondo' && ((this.selectedArticulo[property] === 'X')||(this.selectedArticulo[property] === 'S'))){
                     if(this.fondos[index] === true){
                         this.selectedArticulo.fondo='S';
                     }else {
                         this.selectedArticulo.fondo = 'N';
                     }
                 }
-                if(property === 'lateral' && this.selectedArticulo[property] === 'X'){
+                if(property === 'lateral' && ((this.selectedArticulo[property] === 'X')||(this.selectedArticulo[property] === 'S'))){
                     if(this.laterales[index] === true){
                         this.selectedArticulo.lateral='S';
                     }else{
                         this.selectedArticulo.lateral = 'N';
                     }
                 }
-                if(property === 'tapa' && this.selectedArticulo[property] === 'X'){
+                if(property === 'tapa' && ((this.selectedArticulo[property] === 'X')||(this.selectedArticulo[property] === 'S'))){
                     if(this.tapas[index] === true){
                         this.selectedArticulo.tapa='S';
                     }else{
@@ -227,13 +227,9 @@
             try{
 
                 //const url = "http://localhost:8080/kriterOMNI/KriterRS004/getOrders";
-
-
-                //const url = 'https://7fb7-45-15-136-50.eu.ngrok.io/kriterOMNI/KriterRS004/getOrders';
+                //const url = 'https://df23-45-15-136-50.eu.ngrok.io/kriterOMNI/KriterRS004/getOrders';
                 const url = '../data/facturas.json'
-                const response = await axios(url,{
-                    "Access-Control-Allow-Origin": '*'
-                });
+                const response = await axios(url);
 
                 const res = response.data;
                 this.facturas = res;

@@ -69,10 +69,14 @@
             <li class="list-group-item col-2" v-bind:class="{'green-color': comprobar($index,a)}">{{ a.cantidad }}</li>
             <li class="list-group-item col-1" v-bind:class="{'green-color': comprobar($index,a)}">
                 <div v-if="a.fondo === 'X'" class="form-check">
-                    <input class="form-check-input"  v-on:change="beforePost(a,$index)" v-model="fondos[$index]" type="checkbox" value="false" id="check1">
+                    <input class="form-check-input" v-on:change="beforePost(a,$index)" v-model="fondos[$index]" type="checkbox" value="false" id="check1">
                     <label class="form-check-label" for="check1"></label>
                 </div>
-                <div v-else>{{ fondos[$index] = '' }}</div>
+                <div v-if="a.fondo === 'S'" class="form-check">
+                    <input class="form-check-input"  v-on:change="beforePost(a,$index)" v-model="fondos[$index]" type="checkbox" value="true" id="check1" checked>
+                    <label class="form-check-label" for="check1">{{fondos[$index]}}</label>
+                </div>
+                <div v-if="a.fondo === ''">{{ fondos[$index] = '' }}</div>
             </li>
             <li class="list-group-item col-1"  v-bind:class="{'green-color': comprobar($index,a)}">
                 <div v-if="a.lateral === 'X'" class="form-check">
@@ -80,14 +84,22 @@
                            id="check2">
                     <label class="form-check-label" for="check2"></label>
                 </div>
-                <div v-else>{{ laterales[$index] = '' }}</div>
+                <div v-if="a.lateral === 'S'" class="form-check">
+                    <input class="form-check-input"  v-on:change="beforePost(a,$index)"  v-model="laterales[$index]" type="checkbox" value="true" id="check1" checked>
+                    <label class="form-check-label" for="check1"></label>
+                </div>
+                <div v-if="a.lateral === ''">{{ laterales[$index] = '' }}</div>
             </li>
             <li class="list-group-item col-1"  v-bind:class="{'green-color': comprobar($index,a)}">
                 <div v-if="a.tapa === 'X'" class="form-check">
                     <input class="form-check-input" v-on:change="beforePost(a,$index)" v-model="tapas[$index]" type="checkbox" value="false" id="check3">
                     <label class="form-check-label" for="check3"></label>
                 </div>
-                <div v-else>{{ tapas[$index] = '' }}</div>
+                <div v-if="a.tapa === 'S'" class="form-check">
+                    <input class="form-check-input"  v-on:change="beforePost(a,$index)"  v-model="tapas[$index]" type="checkbox" value="true" id="check1" checked>
+                    <label class="form-check-label" for="check1"></label>
+                </div>
+                <div v-if="a.tapa === ''">{{ tapas[$index] = '' }}</div>
             </li>
 
         </ul>
